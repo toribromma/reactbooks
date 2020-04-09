@@ -49,7 +49,12 @@ function Books() {
         author: formObject.author,
         synopsis: formObject.synopsis
       })
-        .then(res => loadBooks())
+        .then(() => setFormObject({
+          title: "",
+          author: "",
+          synopsis: ""
+        }))
+        .then(() => loadBooks())
         .catch(err => console.log(err));
     }
   };
